@@ -64,7 +64,7 @@ export function AddNotificationDemo() {
           <Label htmlFor="notification-type" className="dark:text-gray-300">
             Notification Type
           </Label>
-          <Select value={type} onValueChange={(value) => setType(value as NotificationType)}>
+          <Select value={type} onValueChange={(value: string) => setType(value as NotificationType)}>
             <SelectTrigger id="notification-type" className="dark:bg-gray-800 dark:border-gray-700 dark:text-white">
               <SelectValue placeholder="Select notification type" />
             </SelectTrigger>

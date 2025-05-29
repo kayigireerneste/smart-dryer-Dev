@@ -2,6 +2,12 @@ import { Redis } from "@upstash/redis"
 
 // Create Redis client from environment variables
 // KV_URL and KV_REST_API_TOKEN are automatically added by Vercel
+const redisUrl = process.env.KV_URL
+const redisToken = process.env.KV_REST_API_READ_ONLY_TOKEN
+
+if (!redisUrl || !redisToken) {
+  throw new Error("Missing Redis environment variables: KV_URL or KV_REST_API_READ_ONLY_TOKEN")
+}
 export const redis = Redis.fromEnv()
 
 // Key prefixes for better organization

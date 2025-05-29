@@ -29,8 +29,15 @@ const generateMockData = () => {
   return data
 }
 
+type SensorData = {
+  time: string
+  temperature: number
+  humidity: number
+  moisture: number
+}
+
 export default function SensorDataChart() {
-  const [data, setData] = useState([])
+  const [data, setData] = useState<SensorData[]>([])
 
   useEffect(() => {
     // Only run in browser environment

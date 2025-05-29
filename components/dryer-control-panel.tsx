@@ -67,7 +67,7 @@ export default function DryerControlPanel() {
               max={80}
               step={1}
               value={[temperature]}
-              onValueChange={(value) => setTemperature(value[0])}
+              onValueChange={(value: number[]) => setTemperature(value[0])}
             />
           </div>
 
@@ -82,7 +82,7 @@ export default function DryerControlPanel() {
               max={100}
               step={1}
               value={[fanSpeed]}
-              onValueChange={(value) => setFanSpeed(value[0])}
+              onValueChange={(value: number[]) => setFanSpeed(value[0])}
             />
           </div>
 

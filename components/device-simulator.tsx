@@ -756,7 +756,7 @@ export default function DeviceSimulator() {
                     min={0.1}
                     max={10}
                     step={0.1}
-                    onValueChange={(value) => updateSimulationSpeed(value[0])}
+                    onValueChange={(value: number[]) => updateSimulationSpeed(value[0])}
                     className="flex-1 dark:bg-gray-800"
                   />
                   <span className="w-12 text-center dark:text-white">{simulationSpeed.toFixed(1)}x</span>
@@ -784,7 +784,7 @@ export default function DeviceSimulator() {
                       min={10}
                       max={80}
                       step={0.1}
-                      onValueChange={(value) => setSensorData((prev) => ({ ...prev, temperature: roundTo(value[0]) }))}
+                      onValueChange={(value: number[]) => setSensorData((prev) => ({ ...prev, temperature: roundTo(value[0]) }))}
                       className="dark:bg-gray-800"
                     />
                     <p className="text-xs text-muted-foreground dark:text-gray-400">
@@ -805,7 +805,7 @@ export default function DeviceSimulator() {
                       min={0}
                       max={100}
                       step={0.1}
-                      onValueChange={(value) => setSensorData((prev) => ({ ...prev, humidity: roundTo(value[0]) }))}
+                      onValueChange={(value: number[]) => setSensorData((prev) => ({ ...prev, humidity: roundTo(value[0]) }))}
                       className="dark:bg-gray-800"
                     />
                     <p className="text-xs text-muted-foreground dark:text-gray-400">
@@ -828,7 +828,7 @@ export default function DeviceSimulator() {
                       min={0}
                       max={100}
                       step={0.1}
-                      onValueChange={(value) => setSensorData((prev) => ({ ...prev, moisture: roundTo(value[0]) }))}
+                      onValueChange={(value: number[]) => setSensorData((prev) => ({ ...prev, moisture: roundTo(value[0]) }))}
                       className="dark:bg-gray-800"
                     />
                     <p className="text-xs text-muted-foreground dark:text-gray-400">
@@ -849,7 +849,7 @@ export default function DeviceSimulator() {
                       min={0.5}
                       max={10}
                       step={0.1}
-                      onValueChange={(value) => setSensorData((prev) => ({ ...prev, weight: roundTo(value[0], 3) }))}
+                      onValueChange={(value: number[]) => setSensorData((prev) => ({ ...prev, weight: roundTo(value[0], 3) }))}
                       className="dark:bg-gray-800"
                     />
                     <p className="text-xs text-muted-foreground dark:text-gray-400">
@@ -893,7 +893,7 @@ export default function DeviceSimulator() {
                     </Label>
                     <Select
                       value={dryingCycle.mode}
-                      onValueChange={(value) => setDryingCycle((prev) => ({ ...prev, mode: value }))}
+                      onValueChange={(value: string) => setDryingCycle((prev) => ({ ...prev, mode: value }))}
                       disabled={dryingCycle.status === "in_progress"}
                     >
                       <SelectTrigger id="drying-mode" className="dark:bg-gray-800 dark:border-gray-700 dark:text-white">
@@ -931,7 +931,7 @@ export default function DeviceSimulator() {
                       min={30}
                       max={80}
                       step={1}
-                      onValueChange={(value) => setDryingCycle((prev) => ({ ...prev, temperature: value[0] }))}
+                      onValueChange={(value: number[]) => setDryingCycle((prev) => ({ ...prev, temperature: value[0] }))}
                       disabled={dryingCycle.status === "in_progress"}
                       className="dark:bg-gray-800"
                     />
@@ -949,7 +949,7 @@ export default function DeviceSimulator() {
                       min={10}
                       max={100}
                       step={1}
-                      onValueChange={(value) => setDryingCycle((prev) => ({ ...prev, fanSpeed: value[0] }))}
+                      onValueChange={(value: number[]) => setDryingCycle((prev) => ({ ...prev, fanSpeed: value[0] }))}
                       disabled={dryingCycle.status === "in_progress"}
                       className="dark:bg-gray-800"
                     />
@@ -964,7 +964,7 @@ export default function DeviceSimulator() {
                     <Switch
                       id="ai-optimization"
                       checked={dryingCycle.aiEnabled}
-                      onCheckedChange={(checked) => setDryingCycle((prev) => ({ ...prev, aiEnabled: checked }))}
+                      onCheckedChange={(checked: boolean) => setDryingCycle((prev) => ({ ...prev, aiEnabled: checked }))}
                       disabled={dryingCycle.status === "in_progress"}
                     />
                   </div>
@@ -978,7 +978,7 @@ export default function DeviceSimulator() {
                     <Switch
                       id="eco-mode"
                       checked={dryingCycle.ecoMode}
-                      onCheckedChange={(checked) => setDryingCycle((prev) => ({ ...prev, ecoMode: checked }))}
+                      onCheckedChange={(checked: boolean) => setDryingCycle((prev) => ({ ...prev, ecoMode: checked }))}
                       disabled={dryingCycle.status === "in_progress"}
                     />
                   </div>

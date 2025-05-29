@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 export const metadata: Metadata = {
   title: "SmartDry - Smart Clothes Dryer System",
   description: "An AI-based integrated system with Internet of Things and cloud computing capabilities",
-    generator: 'v0.dev'
+    generator: 'dev'
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
